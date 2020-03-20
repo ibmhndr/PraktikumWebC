@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modul 4 Form HTML</title>
+</head>
+<body style="background-color:#e8f0fe; font-family:fantasy;"> <br><br><br>
+    <div class="form" style="background-color: white; width: 50%; margin-left: 25%; padding:8px; border:5px; border-radius: 8px;" align="center">
+	    <form action="" method="POST">
+	    	<h2>FORM BIODATA</h2>
+	    	<hr style="color:red" >
+	    <table border="0" cellpadding="5px">
+	        <tr>
+	            <td>Username</td>
+	            <td>:</td><td><input type="text" name="username" size="20" placeholder="Username"></td>
+	        </tr>
+	        <tr>
+	            <td>Password</td>
+	            <td>:</td><td><input type="password" name="password" size="20" placeholder="Password"></td>
+	        </tr>
+	        <tr>
+	            <td>Gender</td>
+	            <td>:</td><td>
+	                <input type="radio" id="Male" name="Gender" value="Male"><label for="Male"> Male </label>
+	                <input type="radio" id="Female" name="Gender" value="Female"><label for="Female"> Female</label></td>
+	        </tr>
+	        <tr>
+	            <td>Hobby</td>
+	            <td>:</td><td>
+	                <input type="checkbox" id="Coding" name="Coding" value="Coding"><label for="Coding"> Coding </label>
+	                <input type="checkbox" id="Design" name="Design" value="Design"><label for="Design"> Design</label></td>
+	        </tr>
+	        <tr>
+	            <td>Daerah Asal</td> 
+	            <td>:</td><td> 
+	                <select name="daerah">
+	                <option disabled="">Pilih Salah Satu</option>
+	                <option value="Nusra">Nusa Tenggara</option>
+	                <option value="Jawa">Jawa</option>
+	                <option value="Sumatra">Sumatra</option>
+	                <option value="Kalimantan">Kalimantan</option>
+	                <option value="Sulawesi">Sulawesi</option>
+	                <option value="Papua">Papua</option>
+	                </select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Alamat</td><td>:</td><td><textarea name="alamat" row="3" cols="20"></textarea></td>
+	        </tr>
+	        <tr>
+	            <td></td><td></td>
+	            <td>
+	            <input type="submit" Value="Submit" style="color:white; background-color: red; border: 2px;border-radius: 12px; padding:8px;"> 
+	            <input type="reset" Value="Clear" style="color:white; background-color: red; border: 2px;border-radius: 12px; padding:8px;">
+	        	</td>
+	        </tr>
+	    </table>
+	    </form>
+	</div>
+</body>
+</html>
