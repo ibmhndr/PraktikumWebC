@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>	
-		<title>To-Do App</title>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<style>	
-			body {
-				font-family: helvetica,garamond;
-				background-color: rgb(245,245,245);
-			}
-			.header{
-				background-color: rgb(67,121,156);
-				color: white;
-				margin: 0;
-				padding: 15px;
-			}
-			.header h2,h4 {
-				margin: 10px;
-			}			
-			.container{
-				margin: 0px;
-				padding: 10px;
-			}
+  <head>  
+    <title>To-Do App</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style> 
+      body {
+        font-family: helvetica,garamond;
+        background-color: rgb(245,245,245);
+      }
+      .header{
+        background-color: rgb(67,121,156);
+        color: white;
+        margin: 0;
+        padding: 15px;
+      }
+      .header h2,h4 {
+        margin: 10px;
+      }     
+      .container{
+        margin: 0px;
+        padding: 10px;
+      }
 
-			ul li.checked {
-			  text-decoration: line-through;
-			}
-	</style>
+      ul li.checked {
+        text-decoration: line-through;
+      }
+  </style>
 </head>
 <body onload="">
-	<div class="header">
-		<h2>To-Do App</h2>
-		<h4>Remind What Do You Need To Do</h4>
-	</div>
-	<div class="container">
-		<h3>What To Do Today?</h3>
-		<input type="text" id="todo" size="50" placeholder="Title..">
-		<input type="button" id="input" class="btn" value="Submit" onclick="tambah()">
-	</div>
+  <center>
+  <div class="header">  
+    <h2>To-Do App</h2>
+    <h4>Remind What Do You Need To Do</h4>
+  </div>
+  <div class="container">
+    <h3>What To Do Today?</h3>
+    <input type="text" id="todo" size="50" placeholder="Title..">
+    <input type="button" id="input" class="btn" value="Submit" onclick="tambah()">
+  </div>
         <br>
         <table id="tabel">
-            <tr>
+            <tr>                
             </tr>
         </table>
-	<br>
-	<br>
+  <br>
+  <br>
     <fieldset id="fieldedit" style="display: none;">
         <legend>Edit</legend>
         <form>
             <tr>
                 <td>
-                    <input type="text" id="txt_edit" size="40">
+                    <input type="text" id="teksedit" size="40">
                 </td>
                 <td>
                     <input type="button" onclick="edittabel()" class="btn" value="Edit">
@@ -58,66 +59,77 @@
             </tr>
         </form>
     </fieldset>
-	<script type="text/javascript">
-		i = 0;
-		function checkall(source) {
-			var checkboxes = document.getElementsByName('check');
-			for(var j=0;j<i;j++) {
-				checkboxes[j].checked = source.checked;
-			}
-		}
+    </center>
+  <script type="text/javascript">
+    i = 1;
+        function tambah() {
+          if(document.getElementById("todo").value != ""){
+          var tabel = document.getElementById("tabel");
+          var row = tabel.insertRow(i);
+          var nama = document.getElementById("todo").value;
+          var checkbox = document.createElement("INPUT");
+          checkbox.setAttribute("type","checkbox");
+          checkbox.setAttribute("id","check"+i+"");
+          var tomboledit = document.createElement("button");
+          tomboledit.setAttribute("id","edit"+i+"");
+          tomboledit.setAttribute("onclick","nomoredit("+i+")");
+          tomboledit.innerHTML = tomboledit.innerHTML+'<i class="material-icons">edit</i></button>';
 
-		function hapus(nilai) {
-			var checkboxes = document.getElementsByName('check');
-			document.getElementById("tabel").deleteRow(nilai);
-			div.style.display = "none";
-			document.getElementById("fieldedit").style.display = "none";
-			i--;
-		}
-		function tambah() {
-			if(document.getElementById("todo").value != ""){
-				var tabel = document.getElementById("tabel");
-				var row = tabel.insertRow(i);
-				var checkbox = document.createElement("INPUT");
-				checkbox.setAttribute("type","checkbox");
-                checkbox.name = "check";
-                var bt_edit = document.createElement("button");
-                bt_edit.setAttribute("class","edit_cls");
-                bt_edit.setAttribute("onclick","nomoredit("+i+")");
-				bt_edit.innerHTML = bt_edit.innerHTML+'<i class="material-icons">edit</i></button>';
+          var hapus = document.createElement("button");
+          hapus.setAttribute("id","hapus"+i+"")
+          hapus.setAttribute("onclick","hapus("+i+")");
+          hapus.innerHTML = hapus.innerHTML+'<i class="material-icons">close</i></button>';
 
-				var hapus = document.createElement("button");
-		      	hapus.setAttribute("class","hapus")
-			    hapus.setAttribute("onclick","hapus("+i+")");
-			    hapus.innerHTML = hapus.innerHTML+'<i class="material-icons">close</i></button>';
+          var cell0 = row.insertCell(0);
+          var cell1 = row.insertCell(1);
+          var cell2 = row.insertCell(2);
+          var cell3 = row.insertCell(3);
+          cell0.append(checkbox);
+          cell1.append(nama);
+          cell2.append(tomboledit);
+          cell3.append(hapus);
+          document.getElementById("fieldedit").style.display = "none";
+          
+          //clear
+          document.getElementById("todo").value = "";
+          i++;
+      }
+      else{
+        alert("Anda Perlu Menulis Sesuatu!");
+      }
+    }
 
-				var nama = document.getElementById("todo").value;
-				var cell0 = row.insertCell(0);
-				var cell1 = row.insertCell(1);
-				var cell2 = row.insertCell(2);
-				var cell3 = row.insertCell(3);
-				cell0.append(checkbox);
-				cell1.append(nama);
-				cell2.append(bt_edit);
-				cell3.append(hapus);
-				document.getElementById("fieldedit").style.display = "none";
-			    //clear
-			    document.getElementById("todo").value = "";
-			    i++;
-			}
-			else{
-			  alert("Anda Perlu Menulis Sesuatu!");
-			}
-		}
-		function nomoredit(no) {
-			row_idx = no;
-			document.getElementById("fieldedit").style.display = "block";
-			document.getElementById("txt_edit").value = document.getElementById("tabel").rows[no].cells.item(1).innerHTML;
-		}
-		function edittabel() {
-			document.getElementById("tabel").rows[row_idx].cells.item(1).innerHTML = document.getElementById("txt_edit").value;
-			document.getElementById("fieldedit").style.display = "none";
-		}
-	</script>	
+    function hapus(nilai) {
+      var checkbox = document.getElementById("check"+nilai+"");
+      checkbox.checked = false;
+      var panjang = document.getElementById("tabel").rows.length;
+      var j=nilai
+      while(j<panjang-1)
+      {
+         k=j+1;
+         var nama = document.getElementById("tabel").rows[k].cells.item(1).innerHTML;
+         document.getElementById("tabel").rows[j].cells.item(1).innerHTML = nama;
+         if(document.getElementById("check"+k+"").checked)
+         {
+          document.getElementById("check"+k+"").checked = false;
+          document.getElementById("check"+j+"").checked = true;
+         }
+         j++
+      }
+      document.getElementById("tabel").deleteRow(panjang-1);
+      i--;
+      document.getElementById("fieldedit").style.display = "none";
+      }
+    
+    function nomoredit(no) {
+      indexbaris = no;
+      document.getElementById("fieldedit").style.display = "block";
+      document.getElementById("teksedit").value = document.getElementById("tabel").rows[no].cells.item(1).innerHTML;
+    }
+    function edittabel() {
+      document.getElementById("tabel").rows[indexbaris].cells.item(1).innerHTML = document.getElementById("teksedit").value;
+      document.getElementById("fieldedit").style.display = "none";
+    }
+  </script> 
 </body>
 </html>
