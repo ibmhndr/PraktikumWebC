@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2020 pada 16.55
+-- Waktu pembuatan: 03 Bulan Mei 2020 pada 20.54
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.8
 
@@ -45,10 +45,16 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`no`, `nama`, `alamat`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `kota_asal`, `agama`, `deskripsi`) VALUES
-(1, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(2, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(3, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(4, 'Bagus Mahaaditya', 'Jalan Pulau Moyo', 'Laki-Laki', 'Denpasar', '2005-01-04', 'Bangli', 'Hindu', 'Saya Adalah Orang yang Baik');
+(11, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Denpasar', 'Hindu', 'Saya Adalah Mahasiswa Ilmu Komputer 2017'),
+(12, 'Bagus Mahaaditya', 'Jalan Pulau Moyo', 'Laki-Laki', 'Denpasar', '2005-01-04', 'Denpasar', 'Hindu', 'Saya adalah anak yang baik'),
+(14, 'Bagas', 'Jalan Pulau Natuna', 'Laki-Laki', 'Denpasar', '2000-05-11', 'Buleleng', 'Hindu', 'Saya orang bijaksana'),
+(15, 'Agus', 'Jalan Pulau Seram', 'Laki-Laki', 'Negara', '1998-04-01', 'Negara', 'Hindu', 'Saya tinggal di negara'),
+(16, 'Satya', 'Jalan Ratna', 'Laki-Laki', 'Denpasar', '1999-01-05', 'Denpasar', 'Hindu', 'Tinggal di Bali sungguh menyenangkan'),
+(17, 'Gustu', 'Jalan Pulau Serangan', 'Laki-Laki', 'Bedugul', '1998-05-21', 'Denpasar', 'Hindu', 'Bedugul memang dingin'),
+(18, 'Tating', 'Jalan Teuku Umar', 'Perempuan', 'Kota Batu', '1996-07-15', 'Kota Batu', 'Katolik', 'Kota Batu tiada duanya'),
+(19, 'Gungtu', 'Jalan Gang Saraswati', 'Laki-Laki', 'Denpasar', '2001-04-12', 'Denpasar', 'Hindu', 'Bali is a wonderful island'),
+(20, 'Guswid', 'Jalan Pulau Salawati Gang Beo no IV', 'Laki-Laki', 'Badung', '1997-02-15', 'Denpasar', 'Hindu', 'Kita semua bersaudara'),
+(21, 'Sukardin', 'Jalan Pulau Ron', 'Laki-Laki', 'Palu', '1993-05-12', 'Palu', 'Islam', 'Damai anarki bersamamu');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +74,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT untuk tabel `data`
 --
 ALTER TABLE `data`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
