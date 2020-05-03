@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2020 pada 16.55
+-- Waktu pembuatan: 03 Bulan Mei 2020 pada 20.24
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.8
 
@@ -45,10 +45,10 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`no`, `nama`, `alamat`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `kota_asal`, `agama`, `deskripsi`) VALUES
-(1, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(2, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(3, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Bangli', 'Hindu', 'Saya Mahasiswa Ilmu Komputer'),
-(4, 'Bagus Mahaaditya', 'Jalan Pulau Moyo', 'Laki-Laki', 'Denpasar', '2005-01-04', 'Bangli', 'Hindu', 'Saya Adalah Orang yang Baik');
+(11, 'Ida Bagus Mahendra', 'Jalan Pulau Salawati No. 2', 'Laki-Laki', 'Denpasar', '1999-05-19', 'Denpasar', 'Hindu', 'Saya Adalah Mahasiswa Ilmu Komputer 2017'),
+(12, 'Bagus Mahaaditya', 'Jalan Pulau Moyo', 'Laki-Laki', 'Denpasar', '2005-01-04', 'Denpasar', 'Hindu', 'Saya adalah anak yang baik'),
+(14, 'Bagas', 'Jalan Pulau Natuna', 'Laki-Laki', 'Denpasar', '2000-05-11', 'Buleleng', 'Hindu', 'Saya orang bijaksana'),
+(15, 'Agus', 'Jalan Pulau Seram', 'Laki-Laki', 'Negara', '1998-04-01', 'Negara', 'Hindu', 'Saya tinggal di negara');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +68,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT untuk tabel `data`
 --
 ALTER TABLE `data`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
