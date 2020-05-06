@@ -1,0 +1,58 @@
+body {
+    font-family: helvetica,garamond;
+    background-color: rgb(245,245,245);
+}
+
+.header{
+    background-color: rgb(67,121,156);
+    color: white;
+    margin: 0;
+    padding: 15px;
+}
+
+.header h2,h4 {
+    margin: 10px;
+}     
+
+.container{
+    margin: 0px;
+    padding: 10px;
+}
+
+.tabel{
+	border-collapse: collapse;
+  	width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+        if (isset($_POST["jenis_kelamin"]) ){
+            $sort =  $_POST["jk"]; 
+            $tampil = $simak->tampilsort($sort,"jk"); 
+        }
+        if (isset($_POST["tempat_lahir"]) ){
+            $sort =  $_POST["tempat_lahir"]; 
+            $tampil = $simak->tampilsort($sort,"tempat_lahir"); 
+        }
+        if (isset($_POST["tanggal_lahir"]) ){
+            $sort =  $_POST["tanggal_lahir"]; 
+            $tampil = $simak->tampilsort($sort,"tanggal_lahir");   
+        }
+        if (isset($_POST["alamat"]) ){
+            $sort =  $_POST["alamat"]; 
+            $tampil = $simak->tampilsort($sort,"alamat");    
+        }
+        if (isset($_POST["email"]) ){
+            $sort =  $_POST["email"]; 
+            $tampil = $simak->tampilsort($sort,"email");    
+        }
+        if (isset($_POST["fakultas"]) ){
+            $sort =  $_POST["fakultas"]; 
+            $tampil = $simak->tampilsort($sort,"fakultas");    
+        }
