@@ -4,15 +4,16 @@
             $result = mysqli_query($koneksi, "SELECT * FROM mahasiswa"); 
             return $result;       
         }
-        function sorting($sort,$field){
+        function sorting($filter, $sort){
             $koneksi = mysqli_connect("localhost","root","","simak") or die(mysqli_error());
             $sql = "SELECT * FROM mahasiswa ORDER BY $filter $sort";
             $result = mysqli_query($koneksi, $sql);
             return $result;
         }
-        function filter($cari,$filter){
+
+        function carifiltersort($cari,$filter, $sort){
             $koneksi = mysqli_connect("localhost","root","","simak") or die(mysqli_error());
-            $sql = "SELECT * FROM mahasiswa WHERE $filter LIKE '%$cari%'";
+            $sql = "SELECT * FROM mahasiswa WHERE $filter LIKE '%$cari%' ORDER BY $filter $sort";
             $result = mysqli_query($koneksi, $sql);
             return $result;
         }
@@ -31,9 +32,12 @@
         <div class="container">    
         <br>
         <form action="" method="POST">
-            <input type="text" placeholder="Cari..." name="cari">
-            <label></label><select class="select" name="filter"/>
-                <option value="" hidden>Berdasarkan Filter..</option>
+            <label>Pencarian : </label><input type="text" placeholder="Cari..." name="cari"><p></p>
+            
+            <select class="select" name="filter"/>
+                <option value="" hidden>Filter Search..</option>
+                <option value="nim">Filter By NIM</option>
+                <option value="nama">Filter By Nama</option>
                 <option value="jenis_kelamin">Filter By Jenis Kelamin</option>
                 <option value="tempat_lahir">Filter By Tempat Lahir</option>
                 <option value="tanggal_lahir">Filter By Tanggal Lahir</option>
@@ -41,42 +45,39 @@
                 <option value="no_telp">Filter By No Telepon</option>
                 <option value="fakultas">Filter By Fakultas</option>
                 <option value="jurusan">Filter By Jurusan</option>
+            </select>
+
+            <select class="select" name="sort"/>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
             <input type="submit" value="OK" name="submit">
-            <input type="submit" value="Kembali" name="kembali"><p></p>
+            <a href="index.php?"><input type="button" value="Kembali" name="kembali"></a><p></p>
         </form>
-        
         <?php
         $koneksi = mysqli_connect("localhost","root","","simak") or die(mysqli_error());
         $result = mysqli_query($koneksi, "SELECT * FROM mahasiswa"); 
         $sort = "";
-        $kembali = "";        
+
         if($sort == ""){
             $result = show();
         }
-        if (isset($_POST["sort"]) AND isset($_POST["nama"])){
+
+         if(isset($_POST['cari']) AND $_POST['filter']==""){
+             echo '<script language="javascript">alert("Masukan Filter Search!"); document.location="index.php";</script>';
+         }
+
+        if (isset($_POST["submit"]) AND isset($_POST['filter']) AND isset($_POST["sort"])){
             $sort =  $_POST["sort"]; 
             $filter  = $_POST['filter'];
-            $result = filter($sort, $filter);  
+            $result = sorting($filter, $sort);        
         }
 
-        if(isset($_POST['cari']) AND $_POST['filter']==""){
-            echo '<script language="javascript">alert("Masukan Filter Search!");</script>';
-        }
-
-        if(isset($_POST['filter']) AND $_POST['cari']==""){
-            echo '<script language="javascript">alert("Masukan Pencarian!");</script>';
-        }
-
-        if (isset($_POST["kembali"])){
-            $result = show();  
-        }
-
-        if(isset($_POST['submit'])){
+        if(isset($_POST['submit']) AND isset($_POST['cari']) AND isset($_POST['filter']) AND isset($_POST["sort"])){
             $cari = $_POST['cari'];
             $filter  = $_POST['filter'];
-            if($cari!="" AND $filter!=""){
-                $result = filter($cari,$filter);
-            }
+            $sort =  $_POST["sort"]; 
+            $result = carifiltersort($cari,$filter, $sort);
         }
         echo "<table class='tabel' border='1' cellpadding='16' align='center'>";
         echo "<tr>
@@ -112,5 +113,6 @@
             }
             echo "</table>";
 ?>
+        </div>
     </body>
 </html>
